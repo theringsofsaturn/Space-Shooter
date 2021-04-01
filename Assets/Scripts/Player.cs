@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //every variable has a name
     //optional value assigned
     [SerializeField]
-    public float speed = 3.5f;
+    private float _speed = 3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,10 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {                     //new Vector3(5, 0, 0) * 5 * real time
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        //new Vector3(1, 0, 0) * 0 * 3.5 * real time
+        transform.Translate(Vector3.right * horizontalInput * verticalInput * _speed * Time.deltaTime);
     }
 }
