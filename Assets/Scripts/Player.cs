@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     //data type (int, float, bool, string)
     //every variable has a name
     //optional value assigned
+
     [SerializeField]
     private float _speed = 3.5f;
     [SerializeField]
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         //take the current position = new position
         transform.position = new Vector3(0, 0, 0);
+        
     }
 
     // Update is called once per frame
@@ -28,7 +30,8 @@ public class Player : MonoBehaviour
         //if I hit the space key, spawn game object
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
         }
     }
 
