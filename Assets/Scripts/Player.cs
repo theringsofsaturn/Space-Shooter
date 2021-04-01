@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -35,11 +40,11 @@ public class Player : MonoBehaviour
         //if player position on the y is greater than 6, y position = 6
         //else if position on the y is less than -4, y position = -4
 
-        if(transform.position.y >= 6)
+        if (transform.position.y >= 6)
         {
             transform.position = new Vector3(transform.position.x, 6, 0);
         }
-        else if(transform.position.y <= -4f)
+        else if (transform.position.y <= -4f)
         {
             transform.position = new Vector3(transform.position.x, -4f, 0);
         }
@@ -47,11 +52,11 @@ public class Player : MonoBehaviour
         //if player position x is greater than 9.2, position x = 9.2
         //else if position x less than -9.2, position x = -9.2
 
-        if(transform.position.x >= 9.2f)
+        if (transform.position.x >= 9.2f)
         {
             transform.position = new Vector3(9.2f, transform.position.y, 0);
         }
-        else if(transform.position.x <= -9.2f)
+        else if (transform.position.x <= -9.2f)
         {
             transform.position = new Vector3(-9.2f, transform.position.y, 0);
         }
