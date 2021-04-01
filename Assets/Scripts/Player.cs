@@ -32,16 +32,28 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        //if player position on the y is greater than 0, y position = 0
-        //else if position on the y is less than -3.8, y position = -3.8
+        //if player position on the y is greater than 6, y position = 6
+        //else if position on the y is less than -4, y position = -4
 
-        if(transform.position.y >= 0)
+        if(transform.position.y >= 6)
         {
-            transform.position = new Vector3(transform.position.x, 0, 0);
+            transform.position = new Vector3(transform.position.x, 6, 0);
         }
-        else if(transform.position.y >= -3.8f)
+        else if(transform.position.y <= -4f)
         {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+            transform.position = new Vector3(transform.position.x, -4f, 0);
+        }
+
+        //if player position x is greater than 9.2, position x = 9.2
+        //else if position x less than -9.2, position x = -9.2
+
+        if(transform.position.x >= 9.2f)
+        {
+            transform.position = new Vector3(9.2f, transform.position.y, 0);
+        }
+        else if(transform.position.x <= -9.2f)
+        {
+            transform.position = new Vector3(-9.2f, transform.position.y, 0);
         }
     }
 }
