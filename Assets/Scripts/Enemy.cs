@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _speed = 4.0f;
+    private float _speed = 2.0f;
+    public GameObject enemyPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
         //if bottom of screen, respawn at top with a new random x position
+        if(transform.position.y < -6)
+        {
+            float randomX = Random.Range(9.0f, -9.0f);
+            transform.position = new Vector3(randomX, 7, 0);
+        }
 
     }
 }
