@@ -30,6 +30,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Other " + transform.name);
+        //if other is player 
+        //destroy player
+        //destroy us
+
+
+        //if other is laser
+        //destroy laser
+        //dstroy us
     }
 }
