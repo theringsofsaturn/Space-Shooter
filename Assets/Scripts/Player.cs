@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     //optional value assigned
     [SerializeField]
     private float _speed = 3.5f;
+    public GameObject laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+
+        //if I hit the space key, spawn game object
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
     }
 
     void CalculateMovement()
