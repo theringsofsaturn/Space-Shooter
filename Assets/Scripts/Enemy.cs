@@ -31,12 +31,21 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if other is player 
-        //destroy player
-        //destroy us
-
+        if (other.tag == "Player")
+        {
+            //destroy us
+            Destroy(this.gameObject);
+        }
 
         //if other is laser
-        //destroy laser
-        //dstroy us
+        if (other.tag == "Laser")
+        {
+            //destroy laser
+            Destroy(other.gameObject);
+            //dstroy us
+            Destroy(this.gameObject);
+
+        }
+
     }
 }
