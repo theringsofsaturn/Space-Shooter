@@ -405,6 +405,7 @@ MonoBehaviour:
   _speed: 3.5
   _laserPrefab: {fileID: 296202984784420597, guid: 2c6290168dfe4ee40b383b75f0e0902a,
     type: 3}
+  _firerate: 0.15
 --- !u!1001 &8500375001741138890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,12 +426,12 @@ PrefabInstance:
     - target: {fileID: 2474142835279942032, guid: 2c6290168dfe4ee40b383b75f0e0902a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2474142835279942032, guid: 2c6290168dfe4ee40b383b75f0e0902a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2474142835279942032, guid: 2c6290168dfe4ee40b383b75f0e0902a,
         type: 3}
