@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _firerate = 0.5f;
     private float _canFire = -1f;
+    [SerializeField]
+    private float _lives = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -82,5 +84,22 @@ public class Player : MonoBehaviour
     {
         _canFire = Time.time + _firerate;
         Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
+    }
+
+    public void Damage()
+    {
+        //all the three are exactly the same
+        //_lives = _lives - 1;
+        //_lives -= 1;
+        _lives --;
+
+        //check if dead
+        if (_lives < 1)
+        {
+            //destroy us
+            Destroy(this.gameObject);
+        }
+
+
     }
 }
