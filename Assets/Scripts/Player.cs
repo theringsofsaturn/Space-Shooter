@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         
         //take the current position = new position (position of the player when the game starts)
-        transform.position = new Vector3(0, -3.0f, 0);
+        transform.position = new Vector3(0, -2.0f, 0);
         
     }
 
