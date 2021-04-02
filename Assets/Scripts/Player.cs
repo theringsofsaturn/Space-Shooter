@@ -10,16 +10,16 @@ public class Player : MonoBehaviour
     //optional value assigned
 
     [SerializeField]
-    private GameObject _laserPrefab;
-    [SerializeField]
-    private GameObject _tripleShotPrefab;
-
-    [SerializeField]
     private float _speed = 3.5f;
     private float _firerate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
     private float _lives = 3.0f;
+
+    [SerializeField]
+    private GameObject _laserPrefab;
+    [SerializeField]
+    private GameObject _tripleShotPrefab;
 
     [SerializeField]
     private bool _isTripleShotActive = false;
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         if (_isTripleShotActive == true)
         {
             //instantiate triple shot
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            Instantiate(_tripleShotPrefab, transform.position + new Vector3(-0.837f, -1.55f, -0f), Quaternion.identity);
         }
         else
         {
