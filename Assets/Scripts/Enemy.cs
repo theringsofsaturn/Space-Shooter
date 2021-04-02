@@ -34,7 +34,14 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             //damage player
-            other.transform.GetComponent<Player>().Damage();
+
+            //to avoid errors like "NullReferenceException, stored 'Player' in a reference variable
+            Player player = other.transform.GetComponent<Player>();
+            
+            if (player != null)
+            {
+                player.Damage();
+            }
 
             //destroy us
             Destroy(this.gameObject);
