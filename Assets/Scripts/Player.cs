@@ -10,15 +10,20 @@ public class Player : MonoBehaviour
     //optional value assigned
 
     [SerializeField]
-    private float _speed = 3.5f;
-
-    [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
+    private GameObject _tripleShotPrefab;
+
+    [SerializeField]
+    private float _speed = 3.5f;
     private float _firerate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
     private float _lives = 3.0f;
+
+    [SerializeField]
+    private bool _isTripleShotActive = false;
+    
 
     //communicate with SpawnManager script in void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
@@ -96,7 +101,26 @@ public class Player : MonoBehaviour
     void FireLaser()
     {
         _canFire = Time.time + _firerate;
-        Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
+
+        if (_isTripleShotActive == true)
+        {
+            //instantiate triple shot
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
+        }
+
+        
+
+        //if space key is pressed
+        //if tripleShotActive is true
+            //fire 3 lasers (triple shot prefab)
+
+        //else fire 1 laser
+
+        //instantiate 3 lasers (triple shot prefab)
     }
 
     public void Damage()
