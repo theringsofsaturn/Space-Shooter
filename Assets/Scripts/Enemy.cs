@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
     private float _speed = 2.0f;
     public GameObject enemyPrefab;
 

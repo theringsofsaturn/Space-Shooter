@@ -20,11 +20,24 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _lives = 3.0f;
 
+    //communicate with SpawnManager script in void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
+    private SpawnManager _spawnManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        //take the current position = new position
-        transform.position = new Vector3(0, 0, 0);
+        //assign variable
+        //find the Game Object Spawn Manager. Then get component SpawnManager
+        _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+        //before accesing it, check if SpawnManager is succesfully grabbed or is null
+        if (_spawnManager == null)
+        {
+            Debug.LogError("The Spawn Manager is NULL!");
+        }
+
+        
+        //take the current position = new position (position of the player when the game starts)
+        transform.position = new Vector3(0, -3.0f, 0);
         
     }
 
@@ -96,6 +109,9 @@ public class Player : MonoBehaviour
         //check if dead
         if (_lives < 1)
         {
+            //communicate with SpawnManager script. let them know to stop spawing
+            _spawnManager.OnPlayerDeath();
+
             //destroy us
             Destroy(this.gameObject);
         }
