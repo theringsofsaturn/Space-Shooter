@@ -39,7 +39,7 @@ public class Powerup : MonoBehaviour
         {
             //communicate with player script. Create a variable player to have a reference of the component we want. Handle to the component we want
             //(other => in this case is Player, we don't need to find it, we already know wehere it is (in 'other' we collide) and assign the handle to the component
-            //handle to the component I want and assign the handle to the component
+            //handle to the component we want and assign the handle to the component
             //** the component we assign the variable to, should always match the component we are looking for
             Player player = other.transform.GetComponent<Player>();
             //best practice to do before accesing, is to null check or we may crush game
@@ -71,7 +71,7 @@ public class Powerup : MonoBehaviour
                         player.TripleShotActive();
                         break;
                     case 1:
-                        Debug.Log("Collected speed boost");
+                        player.SpeedBoostActive();
                         break;
                     case 2:
                         Debug.Log("Collected shields");
@@ -81,8 +81,6 @@ public class Powerup : MonoBehaviour
                         break;
 
                 }
-
-
 
             }
 

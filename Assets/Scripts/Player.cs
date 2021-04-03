@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _speed = 3.5f;
+    private float speedMultiplier = 2;
     private float _firerate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
@@ -22,8 +23,8 @@ public class Player : MonoBehaviour
     private GameObject _tripleShotPrefab;
 
     private bool _isTripleShotActive = false;
+    private bool isSpeedBoostActive = false;
     
-
     //communicate with SpawnManager script to call void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
 
@@ -63,13 +64,24 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        //new Vector3(1, 0, 0) * 0 * 3.5 * real time
+        //new Vector3(1, 0, 0) * 0 * 3.5 * real time == to =>>
         //transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
-        //new Vector3(0, 1, 0) * 0 * 3.5 * real time
+
+        //new Vector3(0, 1, 0) * 0 * 3.5 * real time == to =>>
         //transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
-        transform.Translate(direction * _speed * Time.deltaTime);
+        //if isSpeedBoostActive is false
+        if (isSpeedBoostActive == false)
+        {
+            transform.Translate(direction * _speed * Time.deltaTime);
+        }
+        
+        //else isSpeedBoostActive is true
+        else
+        {
+            transform.Translate(direction * (_speed * speedMultiplier) * Time.deltaTime);
+        }
 
         //if player position on the y is greater than 6, y position = 6
         //else if position on the y is less than -4, y position = -4
@@ -148,5 +160,18 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         //set triple shot to false
         _isTripleShotActive = false;
+    }
+
+    public void SpeedBoostActive()
+    {
+        isSpeedBoostActive = true;
+        
+        StartCoroutine(SpeedBoostPowerDownRoutine());
+    }
+
+    IEnumerator SpeedBoostPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(5.0f);
+        isSpeedBoostActive = false;
     }
 }
