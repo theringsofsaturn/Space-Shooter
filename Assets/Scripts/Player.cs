@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     private GameObject _tripleShotPrefab;
 
     private bool _isTripleShotActive = false;
-    private bool isSpeedBoostActive = false;
+    private bool _isSpeedBoostActive = false;
+    private bool _isShieldActive = false;
     
     //communicate with SpawnManager script to call void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
@@ -154,7 +155,7 @@ public class Player : MonoBehaviour
 
     public void SpeedBoostActive()
     {
-        isSpeedBoostActive = true;
+        _isSpeedBoostActive = true;
         _speed *= speedMultiplier;
 
         StartCoroutine(SpeedBoostPowerDownRoutine());
@@ -163,8 +164,13 @@ public class Player : MonoBehaviour
     IEnumerator SpeedBoostPowerDownRoutine()
     {
         yield return new WaitForSeconds(5.0f);
-        isSpeedBoostActive = false;
+        _isSpeedBoostActive = false;
 
         _speed /= speedMultiplier;
+    }
+
+    public void ShieldsActive()
+    {
+        _isShieldActive = true;
     }
 }
