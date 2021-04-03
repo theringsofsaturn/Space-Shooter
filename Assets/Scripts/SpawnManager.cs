@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _enemyPrefab;
     [SerializeField]
-    private GameObject _tripleShotPowerUpPrefab;
-    [SerializeField]
     private GameObject _enemyContainer;
+    [SerializeField]
+    private GameObject[] powerups;
 
     private bool _stopSpawning = false;
 
@@ -60,8 +60,9 @@ public class SpawnManager : MonoBehaviour
             //position to spawn powerups
             Vector3 posToSpawn = new Vector3(Random.Range(-9.0f, 9.0f), 7, 0);
 
-            //instantiate powerup prefab
-            Instantiate(_tripleShotPowerUpPrefab, posToSpawn, Quaternion.identity);
+            //instantiate powerups array
+            int randomPowerUp = Random.Range(0, 2);
+            Instantiate(powerups[randomPowerUp], posToSpawn, Quaternion.identity);
 
             //when do we want to run this code again? = yield wait 3-7 random seconds
             yield return new WaitForSeconds(Random.Range(3, 8));

@@ -70,18 +70,8 @@ public class Player : MonoBehaviour
         //new Vector3(0, 1, 0) * 0 * 3.5 * real time == to =>>
         //transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
 
-        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
-        //if isSpeedBoostActive is false
-        if (isSpeedBoostActive == false)
-        {
-            transform.Translate(direction * _speed * Time.deltaTime);
-        }
-        
-        //else isSpeedBoostActive is true
-        else
-        {
-            transform.Translate(direction * (_speed * speedMultiplier) * Time.deltaTime);
-        }
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);    
+        transform.Translate(direction * _speed * Time.deltaTime);
 
         //if player position on the y is greater than 6, y position = 6
         //else if position on the y is less than -4, y position = -4
@@ -165,7 +155,8 @@ public class Player : MonoBehaviour
     public void SpeedBoostActive()
     {
         isSpeedBoostActive = true;
-        
+        _speed *= speedMultiplier;
+
         StartCoroutine(SpeedBoostPowerDownRoutine());
     }
 
@@ -173,5 +164,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
         isSpeedBoostActive = false;
+
+        _speed /= speedMultiplier;
     }
 }
