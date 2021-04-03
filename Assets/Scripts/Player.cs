@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
         if (_isShieldActive == true)
         {
             _isShieldActive = false;
+            _shieldVisualizer.SetActive(false);
             return;
         }
 
@@ -180,5 +181,6 @@ public class Player : MonoBehaviour
     public void ShieldsActive()
     {
         _isShieldActive = true;
+        _shieldVisualizer.SetActive(true);
     }
 }
