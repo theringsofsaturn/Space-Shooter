@@ -250,7 +250,6 @@ MonoBehaviour:
     type: 3}
   _tripleShotPrefab: {fileID: 8783152493111261527, guid: efc51b1b4a0406145baa94313f409f19,
     type: 3}
-  _isTripleShotActive: 1
 --- !u!212 &969109668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -398,9 +397,10 @@ GameObject:
   - component: {fileID: 1441620383}
   - component: {fileID: 1441620382}
   - component: {fileID: 1441620381}
+  - component: {fileID: 1441620385}
   m_Layer: 0
   m_Name: Triple Shot Powerup
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,12 +500,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441620380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.47, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441620385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441620380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c90a4a526479ea488cd86fbebca5843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedPowerUp: 3
 --- !u!1 &1529998403
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,11 +21,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
-    [SerializeField]
     private bool _isTripleShotActive = false;
     
 
-    //communicate with SpawnManager script in void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
+    //communicate with SpawnManager script to call void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
 
     // Start is called before the first frame update
@@ -104,23 +103,15 @@ public class Player : MonoBehaviour
 
         if (_isTripleShotActive == true)
         {
-            //instantiate triple shot
+            //fire 3 lasers (triple shot prefab)
             Instantiate(_tripleShotPrefab, transform.position + new Vector3(-0.837f, -1.55f, -0f), Quaternion.identity);
         }
+        //else fire 1 laser
         else
         {
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
         }
 
-        
-
-        //if space key is pressed
-        //if tripleShotActive is true
-            //fire 3 lasers (triple shot prefab)
-
-        //else fire 1 laser
-
-        //instantiate 3 lasers (triple shot prefab)
     }
 
     public void Damage()
@@ -139,6 +130,23 @@ public class Player : MonoBehaviour
             //destroy us
             Destroy(this.gameObject);
         }
+    }
 
+    public void TripleShotActive()
+    {
+        //TripleShotActive becomes true
+        _isTripleShotActive = true;
+        //start coroutine
+        StartCoroutine(TripleShotPowerDownRoutine());
+        
+    }
+
+    //start the power down coroutine for triple shot
+    IEnumerator TripleShotPowerDownRoutine()
+    {
+        //wait 5 seconds
+        yield return new WaitForSeconds(5.0f);
+        //set triple shot to false
+        _isTripleShotActive = false;
     }
 }
