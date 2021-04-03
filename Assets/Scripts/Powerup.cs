@@ -7,6 +7,13 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private float speedPowerUp = 3.0f;
 
+    //ID for powerups
+    //0 = Triple Shots
+    //1 = Speed
+    //2 = Shields
+    [SerializeField]
+    private int powerupID;
+
     // Start is called before the first frame update
     void Start()
     {
