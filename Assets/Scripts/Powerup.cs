@@ -8,10 +8,8 @@ public class Powerup : MonoBehaviour
     private float speedPowerUp = 3.0f;
 
     //ID for powerups
-    //0 = Triple Shots
-    //1 = Speed
-    //2 = Shields
-    [SerializeField]
+    // 0 = triple shots // 1 = speed // 2 = shields
+    [SerializeField] 
     private int powerupID;
 
     // Start is called before the first frame update
@@ -47,10 +45,48 @@ public class Powerup : MonoBehaviour
             //best practice to do before accesing, is to null check or we may crush game
             if (player != null)
             {
-                player.TripleShotActive();
+                //if powerup ID is 0
+                //if (powerupID == 0)
+                //{
+                //    player.TripleShotActive();
+                //}
+
+                ////else if powerup ID is 1
+                //else if (powerupID == 1)
+                //{
+                //    //play speed powerup
+                //}
+
+
+                ////else if powerup ID is 2
+                //else if (powerupID == 2)
+                //{
+                //    //play shields powerup
+                //}
+
+                //The same as the if-else statement above but more efficient is switch (like for example we have 100 ID!
+                switch (powerupID)
+                {
+                    case 0:
+                        player.TripleShotActive();
+                        break;
+                    case 1:
+                        Debug.Log("Collected speed boost");
+                        break;
+                    case 2:
+                        Debug.Log("Collected shields");
+                        break;
+                    default:
+                        Debug.Log("Default value");
+                        break;
+
+                }
+
+
+
             }
 
-            //on collected destroy
+            //on collected, destroy this
             Destroy(this.gameObject);
         }
     }
