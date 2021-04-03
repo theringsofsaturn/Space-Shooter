@@ -119,6 +119,12 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if (_isShieldActive = true)
+        {
+            _isShieldActive = false;
+            return;
+        }
+
         //all the three are exactly the same
         //_lives = _lives - 1;
         //_lives -= 1;
