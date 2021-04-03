@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
 
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
@@ -119,7 +121,7 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        if (_isShieldActive = true)
+        if (_isShieldActive == true)
         {
             _isShieldActive = false;
             return;
