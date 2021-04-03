@@ -6,12 +6,18 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _enemyPrefab;
-    private bool _stopSpawing = false;
+    [SerializeField]
+    private GameObject _tripleShotPowerUpPrefab;
+    [SerializeField]
+    private GameObject _enemyContainer;
+
+    private bool _stopSpawning = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnPowerUpRoutine());
     }
 
     // Update is called once per frame
@@ -22,16 +28,20 @@ public class SpawnManager : MonoBehaviour
 
     //spawn object every 5 seconds
     //create a coroutine of type IEnumerator -- it allowes us to yield events
-    IEnumerator SpawnRoutine()
+    IEnumerator SpawnEnemyRoutine()
     {
         //use while loop (infinite loop)
-        while (_stopSpawing == false)
+        while (_stopSpawning == false)
         {
             //position to spawn enemies
             Vector3 posToSpawn = new Vector3(Random.Range(-9.0f, 9.0f), 7, 0);
+
             //instantiate an object (in order to instantiate an object we have to have a reference to that object. Create a variable enemyprefab), so =>>
             //instantiate enemy prefab
-            Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
+            GameObject newEnemy = Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
+            newEnemy.transform.parent = _enemyContainer.transform;
+            //if we want to hold onto the reference of the object so once that's instantiated, we can manipulated it, we need to store it into a game object of type variable
+            //we create the variable (see above) of type Game Object called newenemy, so we can access it
 
             //when do we want to run this code again? = yield wait for 5 seconds
             yield return new WaitForSeconds(5.0f);
@@ -42,8 +52,25 @@ public class SpawnManager : MonoBehaviour
 
     }
 
+    IEnumerator SpawnPowerUpRoutine()
+    {
+        //evry 3-7 seconds spawn in a powerup
+        while (_stopSpawning == false)
+        {
+            //position to spawn powerups
+            Vector3 posToSpawn = new Vector3(Random.Range(-9.0f, 9.0f), 7, 0);
+
+            //instantiate powerup prefab
+            Instantiate(_tripleShotPowerUpPrefab, posToSpawn, Quaternion.identity);
+
+            //when do we want to run this code again? = yield wait 3-7 random seconds
+            yield return new WaitForSeconds(Random.Range(3, 8));
+        }
+    }
+
     public void OnPlayerDeath()
     {
-        _stopSpawing = true;
+        _stopSpawning = true;
+
     }
 }
