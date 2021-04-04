@@ -27,5 +27,6 @@ public class UIManager : MonoBehaviour
     {
         //display img sprite
         //give it a new one based on the currentLives index
+        _livesImage.sprite = _livesSprites[currentLives];
     }
 }

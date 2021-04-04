@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private float _firerate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
-    private float _lives = 3.0f;
+    private int _lives = 3;
 
     [SerializeField]
     private int _score;
@@ -144,6 +144,8 @@ public class Player : MonoBehaviour
         //_lives = _lives - 1;
         //_lives -= 1;
         _lives --;
+
+        _uiManager.UpdateLives(_lives);
 
         //check if dead
         if (_lives < 1)
