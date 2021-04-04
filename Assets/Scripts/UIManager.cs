@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
+    //to acess the image component in Lives Display
     private Image _livesImage;
     [SerializeField]
     private Sprite[] _livesSprites;
@@ -20,5 +21,11 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(int playerScore)
     {
         _scoreText.text = "Score: " + playerScore.ToString();
+    }
+
+    public void UpdateLives(int currentLives)
+    {
+        //display img sprite
+        //give it a new one based on the currentLives index
     }
 }
