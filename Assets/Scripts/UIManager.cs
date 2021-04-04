@@ -31,5 +31,11 @@ public class UIManager : MonoBehaviour
         //display img sprite
         //give it a new one based on the currentLives index
         _livesImage.sprite = _livesSprites[currentLives];
+
+        //show game over text
+        if (currentLives == 0)
+        {
+            _gameOverText.gameObject.SetActive(true);
+        }
     }
 }
