@@ -8,10 +8,14 @@ public class Enemy : MonoBehaviour
     private float _speed = 2.0f;
     public GameObject enemyPrefab;
 
+    //global reference of the player. we create a handle to the component we want
+    public Player _player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //this way we assign one time and chache the component player and use it freely throughout the entire script. This because using GetComponent many times is expensive
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -53,6 +57,13 @@ public class Enemy : MonoBehaviour
         {
             //destroy laser
             Destroy(other.gameObject);
+
+            //check if player is alive
+            if (_player != null)
+            {
+                _player.AddScore();
+            }
+            
             //dstroy us
             Destroy(this.gameObject);
 

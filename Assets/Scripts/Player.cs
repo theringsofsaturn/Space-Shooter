@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     private float _lives = 3.0f;
 
     [SerializeField]
+    private int score;
+
+    [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
@@ -182,5 +185,11 @@ public class Player : MonoBehaviour
     {
         _isShieldActive = true;
         _shieldVisualizer.SetActive(true);
+    }
+
+    //method to add 10 the score
+    public void AddScore()
+    {
+        score += 10;
     }
 }
