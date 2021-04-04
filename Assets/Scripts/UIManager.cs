@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
         if (currentLives == 0)
         {
             _gameOverText.gameObject.SetActive(true);
+            StartCoroutine(GameOverFlickerRoutine());
         }
     }
 
