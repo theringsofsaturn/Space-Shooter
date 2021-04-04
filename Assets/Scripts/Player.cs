@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private float _lives = 3.0f;
 
     [SerializeField]
-    private int score;
+    private int _score;
 
     [SerializeField]
     private GameObject _laserPrefab;
@@ -30,9 +30,12 @@ public class Player : MonoBehaviour
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isShieldActive = false;
-    
+
     //communicate with SpawnManager script to call void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
+
+    //global references. we create a handle to the components we want
+    private UIManager _uiManager;
 
     // Start is called before the first frame update
     void Start()
@@ -40,10 +43,16 @@ public class Player : MonoBehaviour
         //assign variable
         //find the Game Object Spawn Manager. Then get component SpawnManager
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         //before accesing it, check if SpawnManager is succesfully grabbed or is null
         if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL!");
+        }
+
+        if (_uiManager == null)
+        {
+            Debug.Log("The UI Manager is NULL!");
         }
 
         
@@ -188,8 +197,9 @@ public class Player : MonoBehaviour
     }
 
     //method to add 10 the score
-    public void AddScore()
+    public void AddScore(int points)
     {
-        score += 10;
+        _score += points;
+        _uiManager.UpdateScore(_score);
     }
 }

@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     private float _speed = 2.0f;
     public GameObject enemyPrefab;
 
-    //global reference of the player. we create a handle to the component we want
-    public Player _player;
-
+    //global references. we create a handle to the components we want
+    private Player _player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
             //check if player is alive
             if (_player != null)
             {
-                _player.AddScore();
+                _player.AddScore(1);
             }
             
             //dstroy us

@@ -222,7 +222,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &107597082
+--- !u!1 &246414430
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,9 +230,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 107597083}
-  - component: {fileID: 107597085}
-  - component: {fileID: 107597084}
+  - component: {fileID: 246414431}
+  - component: {fileID: 246414433}
+  - component: {fileID: 246414432}
   m_Layer: 5
   m_Name: Score_Text
   m_TagString: Untagged
@@ -240,13 +240,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &107597083
+--- !u!224 &246414431
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107597082}
+  m_GameObject: {fileID: 246414430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -257,15 +257,15 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -100, y: -50}
-  m_SizeDelta: {x: 84.31641, y: 24.295227}
+  m_SizeDelta: {x: 83.09512, y: 23.511314}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &107597084
+--- !u!114 &246414432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107597082}
+  m_GameObject: {fileID: 246414430}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -288,17 +288,17 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Score
---- !u!222 &107597085
+  m_Text: 'Score: '
+--- !u!222 &246414433
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107597082}
+  m_GameObject: {fileID: 246414430}
   m_CullTransparentMesh: 0
 --- !u!1 &452160351
 GameObject:
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _lives: 3
-  score: 0
+  _score: 0
   _laserPrefab: {fileID: 2967534962284620821, guid: 04ea9b323ff5bdc409ede83fe6b8ff42,
     type: 3}
   _tripleShotPrefab: {fileID: 8783152493111261527, guid: efc51b1b4a0406145baa94313f409f19,
@@ -909,7 +909,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -924,7 +924,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 107597083}
+  - {fileID: 246414431}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -945,4 +945,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81e5e7730ccd8f40978656e43eb12f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreText: {fileID: 0}
+  _scoreText: {fileID: 246414432}
