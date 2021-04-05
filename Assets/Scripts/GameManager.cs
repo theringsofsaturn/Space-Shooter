@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
         //if R key was pressed
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
-            SceneManager.LoadScene(0); //restart current game scene
+            SceneManager.LoadScene(1); //restart current game scene
         }
     }
 
