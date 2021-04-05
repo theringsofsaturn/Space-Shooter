@@ -16,6 +16,11 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rotate object on the zed axis
         transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+
+        //check for laser collision
+        //instantiate the asteroid at the position of the asteroid (us)
+        //destroy explosion after 3 seconds
     }
 }
