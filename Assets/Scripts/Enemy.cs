@@ -12,21 +12,28 @@ public class Enemy : MonoBehaviour
     private Player _player;
 
     //handle to the animator component
-    private Animator _animator;
-    
+    private Animator _anim;
+
     // Start is called before the first frame update
     void Start()
     {
         //this way we assign one time and chache the component player and use it freely throughout the entire script. This because using GetComponent many times is expensive
         _player = GameObject.Find("Player").GetComponent<Player>();
 
+        //null check player
         if (_player == null)
         {
-            Debug.Log("Player is NULL");
+            Debug.LogError("The Player is NULL");
         }
 
         //assign the component animator
-        _animator.GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
+
+        //null check animator
+        if (_anim == null)
+        {
+            Debug.LogError("The Animator is NULL");
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +51,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         //if other is player 
         if (other.tag == "Player")
@@ -60,9 +67,11 @@ public class Enemy : MonoBehaviour
             }
 
             //trigger anim
-            _animator.SetTrigger("OnEnemyDeath");
+            _anim.SetTrigger("OnEnemyDeath");
+            _speed = 0;
+
             //destroy us
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 2.7f);
         }
 
         //if other is laser
@@ -78,9 +87,10 @@ public class Enemy : MonoBehaviour
             }
 
             //trigger anim
-            _animator.SetTrigger("OnEnemyDeath");
-            //dstroy us
-            Destroy(this.gameObject);
+            _anim.SetTrigger("OnEnemyDeath");
+            _speed = 0;
+            //destroy us
+            Destroy(this.gameObject, 2.7f);
 
         }
 
