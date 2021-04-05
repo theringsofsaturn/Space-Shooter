@@ -10,12 +10,23 @@ public class Enemy : MonoBehaviour
 
     //global references. we create a handle to the components we want
     private Player _player;
+
+    //handle to the animator component
+    private Animator _animator;
     
     // Start is called before the first frame update
     void Start()
     {
         //this way we assign one time and chache the component player and use it freely throughout the entire script. This because using GetComponent many times is expensive
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        if (_player == null)
+        {
+            Debug.Log("Player is NULL");
+        }
+
+        //assign the component animator
+        _animator.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,6 +59,8 @@ public class Enemy : MonoBehaviour
                 player.Damage();
             }
 
+            //trigger anim
+            _animator.SetTrigger("OnEnemyDeath");
             //destroy us
             Destroy(this.gameObject);
         }
@@ -63,7 +76,9 @@ public class Enemy : MonoBehaviour
             {
                 _player.AddScore(1);
             }
-            
+
+            //trigger anim
+            _animator.SetTrigger("OnEnemyDeath");
             //dstroy us
             Destroy(this.gameObject);
 
