@@ -148,6 +148,18 @@ public class Player : MonoBehaviour
         //_lives -= 1;
         _lives --;
 
+        if (_lives == 2)
+        {
+            //enable left engine
+            _leftEngine.SetActive(true);
+        }
+
+        else if (_lives == 1)
+        {
+            //enable right engine
+            _rightEngine.SetActive(true);
+        }
+
         _uiManager.UpdateLives(_lives);
 
         //check if dead
