@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedPowerUp: 3
+  _clip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  powerupID: 0
 --- !u!95 &2766826442956492863
 Animator:
   serializedVersion: 3

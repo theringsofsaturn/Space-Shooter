@@ -7,6 +7,10 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private float speedPowerUp = 3.0f;
 
+    //handle to the component
+    [SerializeField]
+    private AudioClip _clip;
+
     //ID for powerups
     // 0 = triple shots // 1 = speed // 2 = shields
     [SerializeField] 
@@ -42,6 +46,11 @@ public class Powerup : MonoBehaviour
             //handle to the component we want and assign the handle to the component
             //** the component we assign the variable to, should always match the component we are looking for
             Player player = other.transform.GetComponent<Player>();
+
+            //play clip
+            AudioSource.PlayClipAtPoint(_clip, transform.position);
+
+
             //best practice to do before accesing, is to null check or we may crush game
             if (player != null)
             {
