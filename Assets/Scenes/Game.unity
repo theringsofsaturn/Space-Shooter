@@ -672,6 +672,8 @@ MonoBehaviour:
   _tripleShotPrefab: {fileID: 8783152493111261527, guid: efc51b1b4a0406145baa94313f409f19,
     type: 3}
   _shieldVisualizer: {fileID: 65994353}
+  _leftEngine: {fileID: 2135766169}
+  _rightEngine: {fileID: 1843752021}
 --- !u!212 &969109668
 SpriteRenderer:
   m_ObjectHideFlags: 0
