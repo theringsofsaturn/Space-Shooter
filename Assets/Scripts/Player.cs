@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
         
         //take the current position = new position (position of the player when the game starts)
-        transform.position = new Vector3(0, -2.0f, 0);
+        transform.position = new Vector3(0, 0, 0);
         
     }
 
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         if (_isTripleShotActive == true)
         {
             //fire 3 lasers (triple shot prefab)
-            Instantiate(_tripleShotPrefab, transform.position + new Vector3(-0.837f, -1.55f, -0f), Quaternion.identity);
+            Instantiate(_tripleShotPrefab, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
         }
         //else fire 1 laser
         else
