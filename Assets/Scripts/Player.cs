@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
     private bool _isSpeedBoostActive = false;
     private bool _isShieldActive = false;
 
+    [SerializeField]
+    private AudioClip _laserSoundClip;
+    [SerializeField]
+    private AudioSource _audioSource;
+
     //communicate with SpawnManager script to call void Damage(). Create a variable spawnManager to have a reference of the component we want and then assign it in void Start
     private SpawnManager _spawnManager;
 
@@ -47,7 +52,10 @@ public class Player : MonoBehaviour
         //find the Game Object Spawn Manager. Then get component SpawnManager
         _spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
-        //before accesing it, check if SpawnManager is succesfully grabbed or is null
+
+        //assign audio source 
+        _audioSource = GetComponent<AudioSource>();
+
         if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL!");
@@ -56,6 +64,16 @@ public class Player : MonoBehaviour
         if (_uiManager == null)
         {
             Debug.Log("The UI Manager is NULL!");
+        }
+
+        if (_audioSource == null)
+        {
+            Debug.LogError("Audio Source on the player is NULL");
+        }
+
+        else
+        {
+            _audioSource.clip = _laserSoundClip;
         }
 
         
@@ -132,6 +150,8 @@ public class Player : MonoBehaviour
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
         }
 
+        //play the laser audio clip
+        _audioSource.Play();
     }
 
     public void Damage()
