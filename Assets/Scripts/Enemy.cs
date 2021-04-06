@@ -7,8 +7,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 2.0f;
 
+    private float _fireRate = 3.0f;
+    private float _canFire = -1.0f;
+
     public GameObject enemyPrefab;
 
+    [SerializeField]
     private GameObject _laserPrefab;
 
     private AudioSource _audioSource;
@@ -47,6 +51,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+
+        if(Time.time > _canFire)
+        {
+            _fireRate = Random.Range(3.0f, 7.0f);
+            _canFire = Time.time + _fireRate;
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     void CalculateMovement()
