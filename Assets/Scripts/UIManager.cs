@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
@@ -81,6 +82,6 @@ public class UIManager : MonoBehaviour
     //back to main menu
     public void BackToMainMenu()
     {
-        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
     }
 }
