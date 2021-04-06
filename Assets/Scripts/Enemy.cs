@@ -101,6 +101,9 @@ public class Enemy : MonoBehaviour
             //play expplosion clip
             _audioSource.Play();
 
+            //destory collider (to prevent double shooting with double explosion and audio)
+            Destroy(GetComponent<Collider2D>());
+
             //destroy us
             Destroy(this.gameObject, 2.7f);
         }
