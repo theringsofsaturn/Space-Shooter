@@ -62,4 +62,20 @@ public class Laser : MonoBehaviour
     {
         _isEnemyLaser = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //if we (laser) collides with the player and the laser is Enemy's laser
+        if (other.tag == "Player" & _isEnemyLaser == true)
+        {
+            //reference to the player script int he Player game object, in order to access the method Damage()
+            Player player = other.GetComponent<Player>();
+
+            //check null (we don't want to call it if it's not the player) - meaning a player component (Player.cs) exist on the object we hit or collide with
+            if (player != null)
+            {
+                player.Damage();
+            }
+        }
+    }
 }
