@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+    private GameObject _laserPrefab;
+
     private AudioSource _audioSource;
 
     //global references. we create a handle to the components we want
@@ -44,16 +46,20 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
         //move down at 4 meters per second
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
         //if bottom of screen, respawn at top with a new random x position
-        if(transform.position.y < -6)
+        if (transform.position.y < -6)
         {
             float randomX = Random.Range(9.0f, -9.0f);
             transform.position = new Vector3(randomX, 7, 0);
         }
-
     }
 
     public void OnTriggerEnter2D(Collider2D other)
