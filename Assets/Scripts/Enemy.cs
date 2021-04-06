@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 2.0f;
+
     public GameObject enemyPrefab;
+
+    private AudioSource _audioSource;
 
     //global references. we create a handle to the components we want
     private Player _player;
@@ -19,6 +22,8 @@ public class Enemy : MonoBehaviour
     {
         //this way we assign one time and chache the component player and use it freely throughout the entire script. This because using GetComponent many times is expensive
         _player = GameObject.Find("Player").GetComponent<Player>();
+        //assign audio source component
+        _audioSource = GetComponent<AudioSource>();
 
         //null check player
         if (_player == null)
@@ -70,6 +75,9 @@ public class Enemy : MonoBehaviour
             _anim.SetTrigger("OnEnemyDeath");
             _speed = 0;
 
+            //play explosion clip
+            _audioSource.Play();
+
             //destroy us
             Destroy(this.gameObject, 2.7f);
         }
@@ -89,9 +97,12 @@ public class Enemy : MonoBehaviour
             //trigger anim
             _anim.SetTrigger("OnEnemyDeath");
             _speed = 0;
+
+            //play expplosion clip
+            _audioSource.Play();
+
             //destroy us
             Destroy(this.gameObject, 2.7f);
-
         }
 
     }

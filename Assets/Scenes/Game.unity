@@ -707,7 +707,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5b17a0088dcdf924fa92da5af1e1be07, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -833,6 +833,8 @@ MonoBehaviour:
   _shieldVisualizer: {fileID: 65994353}
   _leftEngine: {fileID: 2135766169}
   _rightEngine: {fileID: 1843752021}
+  _laserSoundClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
+  _audioSource: {fileID: 969109671}
 --- !u!212 &969109668
 SpriteRenderer:
   m_ObjectHideFlags: 0
