@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(1); //restart current game scene
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            _pauseMenuPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void GameOver()
