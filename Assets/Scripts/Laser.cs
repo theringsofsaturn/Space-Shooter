@@ -57,4 +57,9 @@ public class Laser : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void AssignEnemyLaser()
+    {
+        _isEnemyLaser = true;
+    }
 }
