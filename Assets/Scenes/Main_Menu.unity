@@ -1232,8 +1232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c661b69a1796534c8410592e18ee6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGameOver: 0
-  _pauseMenuPanel: {fileID: 1733611640}
+  _isGameOver: 1
+  _pauseMenuPanel: {fileID: 0}
 --- !u!4 &1786735049
 Transform:
   m_ObjectHideFlags: 0

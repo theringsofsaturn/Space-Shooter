@@ -19,11 +19,19 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(1); //restart current game scene
         }
 
+        //if P key was pressed
         if (Input.GetKeyDown(KeyCode.P))
         {
-            _pauseMenuPanel.SetActive(true);
+            _pauseMenuPanel.SetActive(true); //pause the game and show Pause Menu Panel
             Time.timeScale = 0;
         }
+    }
+
+    //resume game
+    public void ResumeGame()
+    {
+        _pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void GameOver()
