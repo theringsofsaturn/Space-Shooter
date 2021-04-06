@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool _isGameOver;
 
+    [SerializeField]
+    private GameObject _pauseMenuPanel;
+
     private void Update()
     {
         //if R key was pressed
